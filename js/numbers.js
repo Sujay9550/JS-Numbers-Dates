@@ -87,3 +87,37 @@ console.log((4.7).toFixed(0)); // Result will be a string - 5
 console.log(+(4.7).toFixed(0)); // Result will be a number - 5 (as we have added the +)
 console.log((4.7).toFixed(3)); // Result will be a string - 4.700 (will add decimal upto 3 digits)
 console.log((4.345).toFixed(2)); // Result will be a string - 4.34 (will add decimal upto 2 digits)
+
+// The Remainder Operator %
+
+console.log(5 % 2); // Result - 1
+console.log(8 % 3); // Result - 2
+
+// Function to check whether a number is even or odd
+const checkEven = (number) => {
+  return number % 2 === 0;
+};
+
+console.log(checkEven(4)); // Result - True
+console.log(checkEven(3)); // Result - False
+
+// Dates
+
+const today = new Date();
+console.log(today); // Result - Sun Jan 02 2022 12:36:48 GMT+0530 (India Standard Time)
+
+// Passing Date as a string
+console.log(new Date("Jan 2 2022")); // Result - Sun Jan 02 2022 00:00:00 GMT+0530 (India Standard Time)
+console.log(new Date("Jan 2 2022 02:22:00")); // Result - Sun Jan 02 2022 02:22:00 GMT+0530 (India Standard Time)
+
+// Date, Month, Day, Year
+// Months: 0 - Jan, 1 - Feb, 2 - Mar and so on
+// Days: 0 - Sun, 1 - Mon, 2 - Tue and so on
+const nextdate = new Date(2022, 0, 3); // Format - YYYY/MM/DD
+console.log(nextdate); // Result - Mon Jan 03 2022 00:00:00 GMT+0530 (India Standard Time)
+
+const nextdate1 = new Date(2022, 0, 3, 10, 30, 22); // Format - YYYY/MM/DD HR:MN
+console.log(nextdate1); // Result - Mon Jan 03 2022 00:00:00 GMT+0530 (India Standard Time)
+
+const nextdate2 = new Date(2022, 0, 3, 10, 0); // Format - YYYY/MM/DD HR:MN
+console.log(nextdate2); // Result - Mon Jan 03 2022 10:00:00 GMT+0530 (India Standard Time)
