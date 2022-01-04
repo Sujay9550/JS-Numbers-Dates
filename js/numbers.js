@@ -121,3 +121,47 @@ console.log(nextdate1); // Result - Mon Jan 03 2022 00:00:00 GMT+0530 (India Sta
 
 const nextdate2 = new Date(2022, 0, 3, 10, 0); // Format - YYYY/MM/DD HR:MN
 console.log(nextdate2); // Result - Mon Jan 03 2022 10:00:00 GMT+0530 (India Standard Time)
+
+// Date - Methods
+
+console.log(nextdate1.getFullYear()); // Result - 2022
+console.log(nextdate1.getMonth()); // Result - 0 (0 - Jan)
+console.log(nextdate1.getDate()); // Result - 3
+console.log(nextdate1.getDay()); // Result - 1 (1 - Mon)
+console.log(nextdate1.getHours()); // Result - 10
+console.log(nextdate1.getMinutes()); // Result - 30
+console.log(nextdate1.getSeconds()); // Result - 22
+console.log(nextdate1.toISOString()); // Result - 2022-01-03T05:00:22.000Z
+console.log(nextdate1.getTime()); // Result - 1641186022000 (To get the Timestamp)
+
+// To get the now Timestamp
+console.log(Date.now());
+
+// Method to Mutate/Alter the Date
+nextdate.setFullYear(2023);
+console.log(nextdate); // Result - Tue Jan 03 2023 00:00:00 GMT+0530 (India Standard Time)
+
+// Internationalizing Dates (Intl) - API (Formatting Dates)
+
+const todayDate = new Date();
+console.log(todayDate);
+
+const options = {
+  hour: "numeric",
+  minute: "numeric",
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  weekday: "long",
+};
+
+const formattedDate = new Intl.DateTimeFormat("en-IN", options).format(
+  todayDate
+);
+
+console.log(formattedDate);
+
+// To get the Date & Time format from the User Browser
+
+const locale = navigator.language;
+console.log(locale); // Result - en-US
