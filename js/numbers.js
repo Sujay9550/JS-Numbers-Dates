@@ -165,3 +165,81 @@ console.log(formattedDate);
 
 const locale = navigator.language;
 console.log(locale); // Result - en-US
+
+// Internationalizing Numbers (Intl) - API (Formatting Numbers)
+
+const num = 3243433.54;
+const option1 = {
+  style: "currency", // style = percent, style = currency
+  unit: "mile-per-hour",
+  currency: "EUR",
+  // useGrouping: false,
+};
+console.log("US:", new Intl.NumberFormat("en-US", option1).format(num));
+console.log("Germany:", new Intl.NumberFormat("de-DE", option1).format(num));
+console.log("India:", new Intl.NumberFormat("hi-IN", option1).format(num));
+console.log("locale:", new Intl.NumberFormat(locale, option1).format(num));
+
+// Timers - setTimeout and setInterval
+
+// setTimeout - This method uses a callback function and a time (in milliseconds)
+// This method simply schedules a function to run after a certain time.
+
+// The below method will execute the function after 3 seconds
+
+setTimeout(() => {
+  console.log("Your booking has been accepted");
+}, 3000);
+
+// Passing arguments in the setTimeout function
+
+setTimeout(
+  (carname, model, color) => {
+    console.log(
+      `Your booking for ${carname} with model ${model} and color ${color} has been confirmed`
+    );
+  },
+  4000,
+  "McLaren",
+  2022,
+  "Yellow"
+);
+
+// To clear a timeout based on certain conditions
+
+const cars = ["Lamborghini", "McLaren", "Audi", "Koenigseggs", "Ferrari"];
+
+const carList = setTimeout(
+  (item1, item2, item3, item4, item5) => {
+    console.log(
+      `Here are the list of cars: ${item1}, ${item2}, ${item3}, ${item4}, ${item5}`
+    );
+  },
+  5000,
+  ...cars
+);
+
+if (cars.includes("Audi")) clearTimeout(carList); // The clearTimeout method clears the carList Timeout function
+
+// setInterval - This method is used to run a function several times or repeatedly based on certain conditions
+
+setInterval(() => {
+  const now = new Date();
+  console.log(now);
+}, 1000);
+
+setInterval(() => {
+  const now = new Date();
+  const options = {
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    weekday: "long",
+  };
+
+  const formattedDate = new Intl.DateTimeFormat("en-In", options).format(now);
+  console.log(formattedDate);
+}, 1000);
